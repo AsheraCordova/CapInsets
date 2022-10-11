@@ -58,7 +58,7 @@
      <!-- tsc end -->
   </platform>
   <platform name="browser">
-  	<config-file target="res/xml/config.xml" parent="/*">
+  	<config-file target="config.xml" parent="/*">
       <feature name="CordovaCapInsetsPlugin">
         <param name="android-package" value="com.ashera.capinsets.CordovaCapInsetsPlugin"/>
         <param name="onload" value="true" />
