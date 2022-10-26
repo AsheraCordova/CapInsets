@@ -8,7 +8,7 @@ https://asheracordova.github.io/doc/com/ashera/plugin/CapInsets.html
 
 https://developer.apple.com/documentation/uikit/uiimage/1624097-capinsets
 
-The following is simple example of configuring a button with capinsets:
+The following is simple example of configuring a view with capinsets:
 ```
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
