@@ -14,14 +14,6 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.ashera</groupId>
-			<artifactId>SWTCommon</artifactId>
-		</dependency>
-		<dependency>
-			<artifactId>SWTCorePlugin</artifactId>
-			<groupId>com.ashera</groupId>
-		</dependency>
-		<dependency>
 			<artifactId>SWTLayouts</artifactId>
 			<groupId>com.ashera</groupId>
 		</dependency>
