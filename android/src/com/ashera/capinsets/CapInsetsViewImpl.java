@@ -404,7 +404,7 @@ public void setForegroundCapInsetsRight(String value) {
 		if (!ViewCompat.isLayoutDirectionResolved(view)) {
 			ViewGroup parent = (ViewGroup) view.getParent();
 			while (parent != null) {
-				if (ViewCompat.getLayoutDirection(parent) == View.LAYOUT_DIRECTION_RTL) {
+				if (ViewCompat.getLayoutDirection(parent) == ViewCompat.LAYOUT_DIRECTION_RTL) {
 					return true;
 				}
 				parent = (ViewGroup) parent.getParent();

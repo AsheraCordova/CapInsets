@@ -449,7 +449,7 @@ jboolean ASCapInsetsViewImpl_isRTLayoutCapInsetsWithASIWidget_(ASCapInsetsViewIm
   if (!ADXViewCompat_isLayoutDirectionResolvedWithADView_(view)) {
     ADViewGroup *parent = (ADViewGroup *) cast_chk([((ADView *) nil_chk(view)) getParent], [ADViewGroup class]);
     while (parent != nil) {
-      if (ADXViewCompat_getLayoutDirectionWithADView_(parent) == ADView_LAYOUT_DIRECTION_RTL) {
+      if (ADXViewCompat_getLayoutDirectionWithADView_(parent) == ADXViewCompat_LAYOUT_DIRECTION_RTL) {
         return true;
       }
       parent = (ADViewGroup *) cast_chk([parent getParent], [ADViewGroup class]);
