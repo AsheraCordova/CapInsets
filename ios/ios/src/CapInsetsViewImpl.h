@@ -258,7 +258,11 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setOnLongClickWithNSString:(NSString *)arg0;
 
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setOnSwipedWithNSString:(NSString *)arg0;
+
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setOnTouchWithNSString:(NSString *)arg0;
+
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setOutsideTouchableWithBoolean:(jboolean)arg0;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setRotationWithFloat:(jfloat)arg0;
 
