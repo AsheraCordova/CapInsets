@@ -86,6 +86,10 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 
 - (instancetype)initWithASCapInsetsViewImpl:(ASCapInsetsViewImpl *)outer$;
 
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)animatorXmlWithNSString:(NSString *)arg0;
+
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)endAnimator;
+
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)executeWithBoolean:(jboolean)setter;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)invalidate;
@@ -131,6 +135,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setCustomErrorMessageValuesWithNSString:(NSString *)arg0;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setDuplicateParentStateWithBoolean:(jboolean)arg0;
+
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setElevationWithNSString:(NSString *)arg0;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setEnabledWithBoolean:(jboolean)arg0;
 
@@ -250,6 +256,14 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setModelUiToPojoWithNSString:(NSString *)arg0;
 
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setOnAnimationCancelWithNSString:(NSString *)arg0;
+
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setOnAnimationEndWithNSString:(NSString *)arg0;
+
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setOnAnimationRepeatWithNSString:(NSString *)arg0;
+
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setOnAnimationStartWithNSString:(NSString *)arg0;
+
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setOnClickWithNSString:(NSString *)arg0;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setOnDragWithNSString:(NSString *)arg0;
@@ -313,6 +327,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setVisibilityWithNSString:(NSString *)arg0;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setZIndexWithInt:(jint)arg0;
+
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)startAnimator;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetAlpha;
 
