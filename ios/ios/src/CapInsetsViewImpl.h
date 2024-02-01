@@ -126,6 +126,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setBackgroundWithNSString:(NSString *)arg0;
 
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setBottomWithNSString:(NSString *)arg0;
+
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setClickableWithBoolean:(jboolean)arg0;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setContentDescriptionWithNSString:(NSString *)arg0;
@@ -234,6 +236,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setLayoutDirectionWithNSString:(NSString *)arg0;
 
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setLeftWithNSString:(NSString *)arg0;
+
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setLongClickableWithBoolean:(jboolean)arg0;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setMaxHeightWithNSString:(NSString *)arg0;
@@ -278,6 +282,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setOutsideTouchableWithBoolean:(jboolean)arg0;
 
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setRightWithNSString:(NSString *)arg0;
+
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setRotationWithFloat:(jfloat)arg0;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setRotationXWithFloat:(jfloat)arg0;
@@ -295,6 +301,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setTextAlignmentWithNSString:(NSString *)arg0;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setTextDirectionWithNSString:(NSString *)arg0;
+
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setTopWithNSString:(NSString *)arg0;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setTransformPivotXWithNSString:(NSString *)arg0;
 
@@ -337,6 +345,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetBackgroundTint;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetBackgroundTintMode;
+
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetBottom;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetClickable;
 
@@ -418,6 +428,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetLayoutDirection;
 
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetLeft;
+
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetLongClickable;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetMaxHeight;
@@ -436,6 +448,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetModelUiToPojo;
 
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetRight;
+
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetRotation;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetRotationX;
@@ -451,6 +465,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetTextAlignment;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetTextDirection;
+
+- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetTop;
 
 - (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)tryGetTransformPivotX;
 
