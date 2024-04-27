@@ -13,6 +13,7 @@ import {MotionEvent} from '../../app/MotionEvent';
 import {DragEvent} from '../../app/DragEvent';
 import {KeyEvent} from '../../app/KeyEvent';
 import { ScopedObject } from '../../app/ScopedObject';
+import { Mixin, decorate } from 'ts-mixer';
 
 
 
@@ -32,38 +33,38 @@ export abstract class CapInsetsViewImpl<T> extends ViewImpl<T>{
 	//start - body
 	static initialize() {
     }	
-	@Type(() => CommandAttr)
-	@Expose({ name: "backgroundCapInsets" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "backgroundCapInsets" }))
 	backgroundCapInsets!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "backgroundCapInsetsTop" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "backgroundCapInsetsTop" }))
 	backgroundCapInsetsTop!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "backgroundCapInsetsBottom" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "backgroundCapInsetsBottom" }))
 	backgroundCapInsetsBottom!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "backgroundCapInsetsLeft" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "backgroundCapInsetsLeft" }))
 	backgroundCapInsetsLeft!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "backgroundCapInsetsRight" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "backgroundCapInsetsRight" }))
 	backgroundCapInsetsRight!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "foregroundCapInsets" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "foregroundCapInsets" }))
 	foregroundCapInsets!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "foregroundCapInsetsTop" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "foregroundCapInsetsTop" }))
 	foregroundCapInsetsTop!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "foregroundCapInsetsBottom" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "foregroundCapInsetsBottom" }))
 	foregroundCapInsetsBottom!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "foregroundCapInsetsLeft" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "foregroundCapInsetsLeft" }))
 	foregroundCapInsetsLeft!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "foregroundCapInsetsRight" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "foregroundCapInsetsRight" }))
 	foregroundCapInsetsRight!:CommandAttr<string>| undefined;
 
-	@Exclude()
+	@decorate(Exclude())
 	protected thisPointer: T;	
 	protected abstract getThisPointer(): T;
 	reset() : T {	

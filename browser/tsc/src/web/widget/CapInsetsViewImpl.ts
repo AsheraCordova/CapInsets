@@ -13,6 +13,7 @@ import {MotionEvent} from '../../app/MotionEvent';
 import {DragEvent} from '../../app/DragEvent';
 import {KeyEvent} from '../../app/KeyEvent';
 import { ScopedObject } from '../../app/ScopedObject';
+import { Mixin, decorate } from 'ts-mixer';
 
 
 
@@ -27,23 +28,23 @@ export abstract class CapInsetsViewImpl<T> extends ViewImpl<T>{
 	//start - body
 	static initialize() {
     }	
-	@Type(() => CommandAttr)
-	@Expose({ name: "backgroundCapInsets" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "backgroundCapInsets" }))
 	backgroundCapInsets!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "backgroundCapInsetsTop" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "backgroundCapInsetsTop" }))
 	backgroundCapInsetsTop!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "backgroundCapInsetsBottom" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "backgroundCapInsetsBottom" }))
 	backgroundCapInsetsBottom!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "backgroundCapInsetsLeft" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "backgroundCapInsetsLeft" }))
 	backgroundCapInsetsLeft!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "backgroundCapInsetsRight" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "backgroundCapInsetsRight" }))
 	backgroundCapInsetsRight!:CommandAttr<string>| undefined;
 
-	@Exclude()
+	@decorate(Exclude())
 	protected thisPointer: T;	
 	protected abstract getThisPointer(): T;
 	reset() : T {	
