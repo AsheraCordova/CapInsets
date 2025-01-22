@@ -5,7 +5,6 @@
 
 #include "CapInsetsViewImpl.h"
 #include "IAttributable.h"
-#include "IFragment.h"
 #include "ILifeCycleDecorator.h"
 #include "IOSClass.h"
 #include "IOSObjectArray.h"
@@ -18,21 +17,14 @@
 #include "ViewParent.h"
 #include "WidgetAttribute.h"
 #include "WidgetFactory.h"
-#include "java/lang/Boolean.h"
-#include "java/lang/Integer.h"
-#include "java/util/Map.h"
 
 #include <UIKit/UIKit.h>
 #include "ASUIView.h"
 
 
-#pragma clang diagnostic ignored "-Wincomplete-implementation"
-
 @interface ASCapInsetsViewImpl () {
  @public
   id<ASIWidget> w_;
-  ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *builder_;
-  ASCapInsetsViewImpl_CapInsetsViewBean *bean_;
 }
 
 - (instancetype)initWithASIWidget:(id<ASIWidget>)widget;
@@ -72,8 +64,6 @@
 @end
 
 J2OBJC_FIELD_SETTER(ASCapInsetsViewImpl, w_, id<ASIWidget>)
-J2OBJC_FIELD_SETTER(ASCapInsetsViewImpl, builder_, ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)
-J2OBJC_FIELD_SETTER(ASCapInsetsViewImpl, bean_, ASCapInsetsViewImpl_CapInsetsViewBean *)
 
 __attribute__((unused)) static void ASCapInsetsViewImpl_initWithASIWidget_(ASCapInsetsViewImpl *self, id<ASIWidget> widget);
 
@@ -102,20 +92,6 @@ __attribute__((unused)) static void ASCapInsetsViewImpl_applyCapInsetsBottomWith
 __attribute__((unused)) static void ASCapInsetsViewImpl_applyCapInsetsTopWithASIWidget_withId_(ASCapInsetsViewImpl *self, id<ASIWidget> w, id objValue);
 
 __attribute__((unused)) static jboolean ASCapInsetsViewImpl_isRTLayoutCapInsetsWithASIWidget_(ASCapInsetsViewImpl *self, id<ASIWidget> w);
-
-@interface ASCapInsetsViewImpl_CapInsetsViewCommandBuilder () {
- @public
-  ASCapInsetsViewImpl *this$0_;
-}
-
-@end
-
-@interface ASCapInsetsViewImpl_CapInsetsViewBean () {
- @public
-  ASCapInsetsViewImpl *this$0_;
-}
-
-@end
 
 NSString *ASCapInsetsViewImpl_LOCAL_NAME = @"CapInsetsView";
 
@@ -280,20 +256,6 @@ J2OBJC_IGNORE_DESIGNATED_END
   return ASCapInsetsViewImpl_isRTLayoutCapInsetsWithASIWidget_(self, w);
 }
 
-- (ASCapInsetsViewImpl_CapInsetsViewBean *)getBean {
-  if (bean_ == nil) {
-    bean_ = new_ASCapInsetsViewImpl_CapInsetsViewBean_initWithASCapInsetsViewImpl_(self);
-  }
-  return bean_;
-}
-
-- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)getBuilder {
-  if (builder_ == nil) {
-    builder_ = new_ASCapInsetsViewImpl_CapInsetsViewCommandBuilder_initWithASCapInsetsViewImpl_(self);
-  }
-  return builder_;
-}
-
 + (const J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { NULL, NULL, 0x2, -1, 0, -1, -1, -1, -1 },
@@ -314,8 +276,6 @@ J2OBJC_IGNORE_DESIGNATED_END
     { NULL, "V", 0x2, 17, 9, -1, -1, -1, -1 },
     { NULL, "V", 0x2, 18, 9, -1, -1, -1, -1 },
     { NULL, "Z", 0x2, 19, 0, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewBean;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", 0x1, -1, -1, -1, -1, -1, -1 },
   };
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
@@ -338,17 +298,13 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[15].selector = @selector(applyCapInsetsBottomWithASIWidget:withId:);
   methods[16].selector = @selector(applyCapInsetsTopWithASIWidget:withId:);
   methods[17].selector = @selector(isRTLayoutCapInsetsWithASIWidget:);
-  methods[18].selector = @selector(getBean);
-  methods[19].selector = @selector(getBuilder);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 20, -1, -1 },
     { "w_", "LASIWidget;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "builder_", "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "bean_", "LASCapInsetsViewImpl_CapInsetsViewBean;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "LASIWidget;", "newInstance", "loadAttributes", "LNSString;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;LASILifeCycleDecorator;", "getAttribute", "LASWidgetAttribute;LASILifeCycleDecorator;", "applyForegroundCapInsets", "LASIWidget;LNSObject;", "applyForegroundCapInsetsRight", "applyForegroundCapInsetsLeft", "applyForegroundCapInsetsBottom", "applyForegroundCapInsetsTop", "applyCapInsets", "applyCapInsetsRight", "applyCapInsetsLeft", "applyCapInsetsBottom", "applyCapInsetsTop", "isRTLayoutCapInsets", &ASCapInsetsViewImpl_LOCAL_NAME, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;LASCapInsetsViewImpl_CapInsetsViewBean;" };
-  static const J2ObjcClassInfo _ASCapInsetsViewImpl = { "CapInsetsViewImpl", "com.ashera.capinsets", ptrTable, methods, fields, 7, 0x1, 20, 4, -1, 21, -1, -1, -1 };
+  static const void *ptrTable[] = { "LASIWidget;", "newInstance", "loadAttributes", "LNSString;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;LASILifeCycleDecorator;", "getAttribute", "LASWidgetAttribute;LASILifeCycleDecorator;", "applyForegroundCapInsets", "LASIWidget;LNSObject;", "applyForegroundCapInsetsRight", "applyForegroundCapInsetsLeft", "applyForegroundCapInsetsBottom", "applyForegroundCapInsetsTop", "applyCapInsets", "applyCapInsetsRight", "applyCapInsetsLeft", "applyCapInsetsBottom", "applyCapInsetsTop", "isRTLayoutCapInsets", &ASCapInsetsViewImpl_LOCAL_NAME };
+  static const J2ObjcClassInfo _ASCapInsetsViewImpl = { "CapInsetsViewImpl", "com.ashera.capinsets", ptrTable, methods, fields, 7, 0x1, 18, 2, -1, -1, -1, -1, -1 };
   return &_ASCapInsetsViewImpl;
 }
 
@@ -459,266 +415,3 @@ jboolean ASCapInsetsViewImpl_isRTLayoutCapInsetsWithASIWidget_(ASCapInsetsViewIm
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASCapInsetsViewImpl)
-
-@implementation ASCapInsetsViewImpl_CapInsetsViewCommandBuilder
-
-- (instancetype)initWithASCapInsetsViewImpl:(ASCapInsetsViewImpl *)outer$ {
-  ASCapInsetsViewImpl_CapInsetsViewCommandBuilder_initWithASCapInsetsViewImpl_(self, outer$);
-  return self;
-}
-
-- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)executeWithBoolean:(jboolean)setter {
-  if (setter) {
-    [((id<ASIWidget>) nil_chk(this$0_->w_)) executeCommandWithJavaUtilMap:command_ withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_SETTER_METHOD];
-    [((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(this$0_->w_)) getFragment])) remeasure];
-  }
-  [((id<ASIWidget>) nil_chk(this$0_->w_)) executeCommandWithJavaUtilMap:command_ withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_GETTER_METHOD];
-  return self;
-}
-
-- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setBackgroundCapInsetsWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"backgroundCapInsets"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setBackgroundCapInsetsTopWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"backgroundCapInsetsTop"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setBackgroundCapInsetsBottomWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"backgroundCapInsetsBottom"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setBackgroundCapInsetsLeftWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"backgroundCapInsetsLeft"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setBackgroundCapInsetsRightWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"backgroundCapInsetsRight"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setForegroundCapInsetsWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"foregroundCapInsets"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setForegroundCapInsetsTopWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"foregroundCapInsetsTop"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setForegroundCapInsetsBottomWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"foregroundCapInsetsBottom"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setForegroundCapInsetsLeftWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"foregroundCapInsetsLeft"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *)setForegroundCapInsetsRightWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"foregroundCapInsetsRight"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", 0x1, 3, 4, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", 0x1, 5, 4, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", 0x1, 6, 4, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", 0x1, 7, 4, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", 0x1, 8, 4, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", 0x1, 9, 4, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", 0x1, 10, 4, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", 0x1, 11, 4, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", 0x1, 12, 4, -1, -1, -1, -1 },
-    { NULL, "LASCapInsetsViewImpl_CapInsetsViewCommandBuilder;", 0x1, 13, 4, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASCapInsetsViewImpl:);
-  methods[1].selector = @selector(executeWithBoolean:);
-  methods[2].selector = @selector(setBackgroundCapInsetsWithNSString:);
-  methods[3].selector = @selector(setBackgroundCapInsetsTopWithNSString:);
-  methods[4].selector = @selector(setBackgroundCapInsetsBottomWithNSString:);
-  methods[5].selector = @selector(setBackgroundCapInsetsLeftWithNSString:);
-  methods[6].selector = @selector(setBackgroundCapInsetsRightWithNSString:);
-  methods[7].selector = @selector(setForegroundCapInsetsWithNSString:);
-  methods[8].selector = @selector(setForegroundCapInsetsTopWithNSString:);
-  methods[9].selector = @selector(setForegroundCapInsetsBottomWithNSString:);
-  methods[10].selector = @selector(setForegroundCapInsetsLeftWithNSString:);
-  methods[11].selector = @selector(setForegroundCapInsetsRightWithNSString:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASCapInsetsViewImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASCapInsetsViewImpl;", "execute", "Z", "setBackgroundCapInsets", "LNSString;", "setBackgroundCapInsetsTop", "setBackgroundCapInsetsBottom", "setBackgroundCapInsetsLeft", "setBackgroundCapInsetsRight", "setForegroundCapInsets", "setForegroundCapInsetsTop", "setForegroundCapInsetsBottom", "setForegroundCapInsetsLeft", "setForegroundCapInsetsRight", "Lcom/ashera/layout/ViewImpl$ViewCommandBuilder<Lcom/ashera/capinsets/CapInsetsViewImpl$CapInsetsViewCommandBuilder;>;" };
-  static const J2ObjcClassInfo _ASCapInsetsViewImpl_CapInsetsViewCommandBuilder = { "CapInsetsViewCommandBuilder", "com.ashera.capinsets", ptrTable, methods, fields, 7, 0x1, 12, 1, 0, -1, -1, 14, -1 };
-  return &_ASCapInsetsViewImpl_CapInsetsViewCommandBuilder;
-}
-
-@end
-
-void ASCapInsetsViewImpl_CapInsetsViewCommandBuilder_initWithASCapInsetsViewImpl_(ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *self, ASCapInsetsViewImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewImpl_ViewCommandBuilder_init(self);
-}
-
-ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *new_ASCapInsetsViewImpl_CapInsetsViewCommandBuilder_initWithASCapInsetsViewImpl_(ASCapInsetsViewImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASCapInsetsViewImpl_CapInsetsViewCommandBuilder, initWithASCapInsetsViewImpl_, outer$)
-}
-
-ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *create_ASCapInsetsViewImpl_CapInsetsViewCommandBuilder_initWithASCapInsetsViewImpl_(ASCapInsetsViewImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASCapInsetsViewImpl_CapInsetsViewCommandBuilder, initWithASCapInsetsViewImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASCapInsetsViewImpl_CapInsetsViewCommandBuilder)
-
-@implementation ASCapInsetsViewImpl_CapInsetsViewBean
-
-- (instancetype)initWithASCapInsetsViewImpl:(ASCapInsetsViewImpl *)outer$ {
-  ASCapInsetsViewImpl_CapInsetsViewBean_initWithASCapInsetsViewImpl_(self, outer$);
-  return self;
-}
-
-- (void)setBackgroundCapInsetsWithNSString:(NSString *)value {
-  (void) [((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setBackgroundCapInsetsWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setBackgroundCapInsetsTopWithNSString:(NSString *)value {
-  (void) [((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setBackgroundCapInsetsTopWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setBackgroundCapInsetsBottomWithNSString:(NSString *)value {
-  (void) [((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setBackgroundCapInsetsBottomWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setBackgroundCapInsetsLeftWithNSString:(NSString *)value {
-  (void) [((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setBackgroundCapInsetsLeftWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setBackgroundCapInsetsRightWithNSString:(NSString *)value {
-  (void) [((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setBackgroundCapInsetsRightWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setForegroundCapInsetsWithNSString:(NSString *)value {
-  (void) [((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setForegroundCapInsetsWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setForegroundCapInsetsTopWithNSString:(NSString *)value {
-  (void) [((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setForegroundCapInsetsTopWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setForegroundCapInsetsBottomWithNSString:(NSString *)value {
-  (void) [((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setForegroundCapInsetsBottomWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setForegroundCapInsetsLeftWithNSString:(NSString *)value {
-  (void) [((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setForegroundCapInsetsLeftWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setForegroundCapInsetsRightWithNSString:(NSString *)value {
-  (void) [((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([((ASCapInsetsViewImpl_CapInsetsViewCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setForegroundCapInsetsRightWithNSString:value])) executeWithBoolean:true];
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 3, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 4, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 5, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 6, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 7, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 8, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 9, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 10, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 11, 2, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASCapInsetsViewImpl:);
-  methods[1].selector = @selector(setBackgroundCapInsetsWithNSString:);
-  methods[2].selector = @selector(setBackgroundCapInsetsTopWithNSString:);
-  methods[3].selector = @selector(setBackgroundCapInsetsBottomWithNSString:);
-  methods[4].selector = @selector(setBackgroundCapInsetsLeftWithNSString:);
-  methods[5].selector = @selector(setBackgroundCapInsetsRightWithNSString:);
-  methods[6].selector = @selector(setForegroundCapInsetsWithNSString:);
-  methods[7].selector = @selector(setForegroundCapInsetsTopWithNSString:);
-  methods[8].selector = @selector(setForegroundCapInsetsBottomWithNSString:);
-  methods[9].selector = @selector(setForegroundCapInsetsLeftWithNSString:);
-  methods[10].selector = @selector(setForegroundCapInsetsRightWithNSString:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASCapInsetsViewImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASCapInsetsViewImpl;", "setBackgroundCapInsets", "LNSString;", "setBackgroundCapInsetsTop", "setBackgroundCapInsetsBottom", "setBackgroundCapInsetsLeft", "setBackgroundCapInsetsRight", "setForegroundCapInsets", "setForegroundCapInsetsTop", "setForegroundCapInsetsBottom", "setForegroundCapInsetsLeft", "setForegroundCapInsetsRight" };
-  static const J2ObjcClassInfo _ASCapInsetsViewImpl_CapInsetsViewBean = { "CapInsetsViewBean", "com.ashera.capinsets", ptrTable, methods, fields, 7, 0x1, 11, 1, 0, -1, -1, -1, -1 };
-  return &_ASCapInsetsViewImpl_CapInsetsViewBean;
-}
-
-@end
-
-void ASCapInsetsViewImpl_CapInsetsViewBean_initWithASCapInsetsViewImpl_(ASCapInsetsViewImpl_CapInsetsViewBean *self, ASCapInsetsViewImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewImpl_ViewBean_initWithASIWidget_(self, outer$->w_);
-}
-
-ASCapInsetsViewImpl_CapInsetsViewBean *new_ASCapInsetsViewImpl_CapInsetsViewBean_initWithASCapInsetsViewImpl_(ASCapInsetsViewImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASCapInsetsViewImpl_CapInsetsViewBean, initWithASCapInsetsViewImpl_, outer$)
-}
-
-ASCapInsetsViewImpl_CapInsetsViewBean *create_ASCapInsetsViewImpl_CapInsetsViewBean_initWithASCapInsetsViewImpl_(ASCapInsetsViewImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASCapInsetsViewImpl_CapInsetsViewBean, initWithASCapInsetsViewImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASCapInsetsViewImpl_CapInsetsViewBean)
