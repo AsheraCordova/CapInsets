@@ -30,7 +30,9 @@ public class CapInsetsCommandConverter extends BaseAttributeCommand {
         	Context context = (Context) fragment.getRootActivity();
         	
         	Bitmap bitmap = null;
-        	if (value instanceof Integer) {
+        	if (value instanceof android.graphics.drawable.NinePatchDrawable) {
+				return value;
+			} else if (value instanceof Integer) {
 	            int id = (int) value;
 	    		bitmap = BitmapFactory.decodeResource(context.getResources(), id);
         	} else if (value instanceof android.graphics.drawable.BitmapDrawable) {

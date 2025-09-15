@@ -261,7 +261,7 @@ public class Rectangle {
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setBounds(int, int, int, int)</code>.
      */
-    @Deprecated
+    //@Deprecated
     public void reshape(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
@@ -293,7 +293,7 @@ public class Rectangle {
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setLocation(int, int)</code>.
      */
-    @Deprecated
+    //@Deprecated
     public void move(int x, int y) {
         this.x = x;
         this.y = y;
@@ -403,7 +403,7 @@ public class Rectangle {
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setSize(int, int)</code>.
      */
-    @Deprecated
+    //@Deprecated
     public void resize(int width, int height) {
         this.width = width;
         this.height = height;
@@ -504,7 +504,7 @@ public class Rectangle {
      * @deprecated As of JDK version 1.1,
      * replaced by <code>contains(int, int)</code>.
      */
-    @Deprecated
+    //@Deprecated
     public boolean inside(int X, int Y) {
         int w = this.width;
         int h = this.height;
