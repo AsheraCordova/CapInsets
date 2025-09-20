@@ -3,6 +3,11 @@
 //  source: D:\Java\git\core-ios-widgets\IOSCapInsetsPlugin\src\main\java\com\ashera\capinsets\CapInsetsViewImpl.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "CapInsetsViewImpl.h"
 #include "IAttributable.h"
 #include "ILifeCycleDecorator.h"
@@ -17,9 +22,17 @@
 #include "ViewParent.h"
 #include "WidgetAttribute.h"
 #include "WidgetFactory.h"
+#include "java/lang/Boolean.h"
+#include "java/lang/Integer.h"
 
 #include <UIKit/UIKit.h>
 #include "ASUIView.h"
+
+
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
 
 
 @interface ASCapInsetsViewImpl () {
@@ -59,7 +72,7 @@
 - (void)applyCapInsetsTopWithASIWidget:(id<ASIWidget>)w
                                 withId:(id)objValue;
 
-- (jboolean)isRTLayoutCapInsetsWithASIWidget:(id<ASIWidget>)w;
+- (bool)isRTLayoutCapInsetsWithASIWidget:(id<ASIWidget>)w;
 
 @end
 
@@ -91,7 +104,7 @@ __attribute__((unused)) static void ASCapInsetsViewImpl_applyCapInsetsBottomWith
 
 __attribute__((unused)) static void ASCapInsetsViewImpl_applyCapInsetsTopWithASIWidget_withId_(ASCapInsetsViewImpl *self, id<ASIWidget> w, id objValue);
 
-__attribute__((unused)) static jboolean ASCapInsetsViewImpl_isRTLayoutCapInsetsWithASIWidget_(ASCapInsetsViewImpl *self, id<ASIWidget> w);
+__attribute__((unused)) static bool ASCapInsetsViewImpl_isRTLayoutCapInsetsWithASIWidget_(ASCapInsetsViewImpl *self, id<ASIWidget> w);
 
 NSString *ASCapInsetsViewImpl_LOCAL_NAME = @"CapInsetsView";
 
@@ -252,7 +265,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   ASCapInsetsViewImpl_applyCapInsetsTopWithASIWidget_withId_(self, w, objValue);
 }
 
-- (jboolean)isRTLayoutCapInsetsWithASIWidget:(id<ASIWidget>)w {
+- (bool)isRTLayoutCapInsetsWithASIWidget:(id<ASIWidget>)w {
   return ASCapInsetsViewImpl_isRTLayoutCapInsetsWithASIWidget_(self, w);
 }
 
@@ -397,7 +410,7 @@ void ASCapInsetsViewImpl_applyCapInsetsTopWithASIWidget_withId_(ASCapInsetsViewI
   [((id<ASIWidget>) nil_chk(w)) applyAttributeCommandWithNSString:@"background" withNSString:@"capInsets" withNSStringArray:[IOSObjectArray newArrayWithObjects:(id[]){ @"capInsetsTop", @"capInsetsBottom", @"capInsetsLeft", @"capInsetsRight" } count:4 type:NSString_class_()] withBoolean:true withNSObjectArray:[IOSObjectArray newArrayWithObjects:(id[]){ @"capInsetsTop", objValue } count:2 type:NSObject_class_()]];
 }
 
-jboolean ASCapInsetsViewImpl_isRTLayoutCapInsetsWithASIWidget_(ASCapInsetsViewImpl *self, id<ASIWidget> w) {
+bool ASCapInsetsViewImpl_isRTLayoutCapInsetsWithASIWidget_(ASCapInsetsViewImpl *self, id<ASIWidget> w) {
   if (ASViewImpl_isRTLLayoutDirectionWithASIWidget_(w)) {
     return true;
   }
@@ -415,3 +428,5 @@ jboolean ASCapInsetsViewImpl_isRTLayoutCapInsetsWithASIWidget_(ASCapInsetsViewIm
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASCapInsetsViewImpl)
+
+J2OBJC_NAME_MAPPING(ASCapInsetsViewImpl, "com.ashera.capinsets", "AS")

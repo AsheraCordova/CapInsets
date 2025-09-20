@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-ios-widgets\IOSCapInsetsPlugin\src\main\java\com\ashera\capinsets\CGCapInsetsCommandConverter.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_CGCapInsetsCommandConverter")
@@ -21,6 +22,8 @@
 #include "BaseAttributeCommand.h"
 
 @class IOSObjectArray;
+@class JavaLangBoolean;
+@class NSString;
 @protocol ASAttributeCommand;
 @protocol ASIWidget;
 
@@ -30,7 +33,7 @@
 
 - (instancetype)initWithNSString:(NSString *)id_;
 
-- (jboolean)executeAfterPostMeasure;
+- (bool)executeAfterPostMeasure;
 
 - (id)modifyValueWithASIWidget:(id<ASIWidget>)widget
                         withId:(id)nativeView
@@ -59,6 +62,7 @@ FOUNDATION_EXPORT ASCGCapInsetsCommandConverter *create_ASCGCapInsetsCommandConv
 J2OBJC_TYPE_LITERAL_HEADER(ASCGCapInsetsCommandConverter)
 
 @compatibility_alias ComAsheraCapinsetsCGCapInsetsCommandConverter ASCGCapInsetsCommandConverter;
+
 
 #endif
 

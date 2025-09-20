@@ -3,38 +3,50 @@
 //  source: D:\Java\git\core-ios-widgets\IOSCapInsetsPlugin\src\main\java\com\ashera\capinsets\CGCapInsetsCommandConverter.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "AttributeCommand.h"
 #include "BaseAttributeCommand.h"
 #include "CGCapInsetsCommandConverter.h"
 #include "IOSObjectArray.h"
 #include "IWidget.h"
 #include "J2ObjC_source.h"
+#include "java/lang/Boolean.h"
 #include "java/lang/Integer.h"
 
 #include <UIKit/UIKit.h>
 #include "CGRectWrapper.h"
 
 
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
+
+
 @interface ASCGCapInsetsCommandConverter () {
  @public
-  jint capInsetsStretchTop_;
-  jint capInsetsStretchBottom_;
-  jint capInsetsStretchLeft_;
-  jint capInsetsStretchRight_;
+  int32_t capInsetsStretchTop_;
+  int32_t capInsetsStretchBottom_;
+  int32_t capInsetsStretchLeft_;
+  int32_t capInsetsStretchRight_;
   id rectObj_;
 }
 
 - (id)nativeLoadImageBundleWithId:(id)imageObj
-                          withInt:(jint)top
-                          withInt:(jint)bottom
-                          withInt:(jint)left
-                          withInt:(jint)right;
+                          withInt:(int32_t)top
+                          withInt:(int32_t)bottom
+                          withInt:(int32_t)left
+                          withInt:(int32_t)right;
 
 @end
 
 J2OBJC_FIELD_SETTER(ASCGCapInsetsCommandConverter, rectObj_, id)
 
-__attribute__((unused)) static id ASCGCapInsetsCommandConverter_nativeLoadImageBundleWithId_withInt_withInt_withInt_withInt_(ASCGCapInsetsCommandConverter *self, id imageObj, jint top, jint bottom, jint left, jint right);
+__attribute__((unused)) static id ASCGCapInsetsCommandConverter_nativeLoadImageBundleWithId_withInt_withInt_withInt_withInt_(ASCGCapInsetsCommandConverter *self, id imageObj, int32_t top, int32_t bottom, int32_t left, int32_t right);
 
 @implementation ASCGCapInsetsCommandConverter
 
@@ -51,7 +63,7 @@ __attribute__((unused)) static id ASCGCapInsetsCommandConverter_nativeLoadImageB
   if (value == nil) {
     return nil;
   }
-  jboolean isNinePatch = capInsetsStretchTop_ != 0 || capInsetsStretchBottom_ != 0 || capInsetsStretchLeft_ != 0 || capInsetsStretchRight_ != 0;
+  bool isNinePatch = capInsetsStretchTop_ != 0 || capInsetsStretchBottom_ != 0 || capInsetsStretchLeft_ != 0 || capInsetsStretchRight_ != 0;
   if (isNinePatch) {
     return ASCGCapInsetsCommandConverter_nativeLoadImageBundleWithId_withInt_withInt_withInt_withInt_(self, value, capInsetsStretchTop_, capInsetsStretchBottom_, capInsetsStretchLeft_, capInsetsStretchRight_);
   }
@@ -66,10 +78,10 @@ __attribute__((unused)) static id ASCGCapInsetsCommandConverter_nativeLoadImageB
 }
 
 - (id)nativeLoadImageBundleWithId:(id)imageObj
-                          withInt:(jint)top
-                          withInt:(jint)bottom
-                          withInt:(jint)left
-                          withInt:(jint)right {
+                          withInt:(int32_t)top
+                          withInt:(int32_t)bottom
+                          withInt:(int32_t)left
+                          withInt:(int32_t)right {
   return ASCGCapInsetsCommandConverter_nativeLoadImageBundleWithId_withInt_withInt_withInt_withInt_(self, imageObj, top, bottom, left, right);
 }
 
@@ -80,7 +92,7 @@ __attribute__((unused)) static id ASCGCapInsetsCommandConverter_nativeLoadImageB
 }
 
 - (void)updateArgsWithNSObjectArray:(IOSObjectArray *)args {
-  for (jint i = 0; i < ((IOSObjectArray *) nil_chk(args))->size_; i += 2) {
+  for (int32_t i = 0; i < ((IOSObjectArray *) nil_chk(args))->size_; i += 2) {
     id attributeName = IOSObjectArray_Get(args, i);
     if ([nil_chk(attributeName) isEqual:@"capInsetsTop"]) {
       capInsetsStretchTop_ = [((JavaLangInteger *) nil_chk(((JavaLangInteger *) cast_chk(IOSObjectArray_Get(args, i + 1), [JavaLangInteger class])))) intValue];
@@ -98,7 +110,7 @@ __attribute__((unused)) static id ASCGCapInsetsCommandConverter_nativeLoadImageB
 }
 
 - (void)updatePhaseArgsWithNSObjectArray:(IOSObjectArray *)args {
-  for (jint i = 0; i < ((IOSObjectArray *) nil_chk(args))->size_; i += 2) {
+  for (int32_t i = 0; i < ((IOSObjectArray *) nil_chk(args))->size_; i += 2) {
     id attributeName = IOSObjectArray_Get(args, i);
     if ([nil_chk(attributeName) isEqual:@"rect"]) {
       rectObj_ = IOSObjectArray_Get(args, i + 1);
@@ -106,7 +118,7 @@ __attribute__((unused)) static id ASCGCapInsetsCommandConverter_nativeLoadImageB
   }
 }
 
-- (jboolean)executeAfterPostMeasure {
+- (bool)executeAfterPostMeasure {
   return true;
 }
 
@@ -157,7 +169,7 @@ ASCGCapInsetsCommandConverter *create_ASCGCapInsetsCommandConverter_initWithNSSt
   J2OBJC_CREATE_IMPL(ASCGCapInsetsCommandConverter, initWithNSString_, id_)
 }
 
-id ASCGCapInsetsCommandConverter_nativeLoadImageBundleWithId_withInt_withInt_withInt_withInt_(ASCGCapInsetsCommandConverter *self, id imageObj, jint top, jint bottom, jint left, jint right) {
+id ASCGCapInsetsCommandConverter_nativeLoadImageBundleWithId_withInt_withInt_withInt_withInt_(ASCGCapInsetsCommandConverter *self, id imageObj, int32_t top, int32_t bottom, int32_t left, int32_t right) {
   if ([imageObj isKindOfClass:[UIImage class]]) {
     UIImage* background = (UIImage*) imageObj;
     CGRect rect = ((CGRectWrapper*) self->rectObj_).rect;
@@ -227,3 +239,5 @@ id ASCGCapInsetsCommandConverter_nativeLoadImageBundleWithId_withInt_withInt_wit
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASCGCapInsetsCommandConverter)
+
+J2OBJC_NAME_MAPPING(ASCGCapInsetsCommandConverter, "com.ashera.capinsets", "AS")

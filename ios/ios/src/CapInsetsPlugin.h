@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-ios-widgets\IOSCapInsetsPlugin\src\main\java\com\ashera\capinsets\CapInsetsPlugin.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_CapInsetsPlugin")
@@ -39,6 +40,7 @@ FOUNDATION_EXPORT void ASCapInsetsPlugin_initPlugin(void);
 J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsPlugin)
 
 @compatibility_alias ComAsheraCapinsetsCapInsetsPlugin ASCapInsetsPlugin;
+
 
 #endif
 

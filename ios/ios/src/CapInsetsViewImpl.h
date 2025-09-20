@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-ios-widgets\IOSCapInsetsPlugin\src\main\java\com\ashera\capinsets\CapInsetsViewImpl.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_CapInsetsViewImpl")
@@ -21,6 +22,7 @@
 #include "IAttributable.h"
 
 @class ASWidgetAttribute;
+@class NSString;
 @protocol ASILifeCycleDecorator;
 @protocol ASIWidget;
 
@@ -62,6 +64,7 @@ FOUNDATION_EXPORT ASCapInsetsViewImpl *create_ASCapInsetsViewImpl_init(void);
 J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsViewImpl)
 
 @compatibility_alias ComAsheraCapinsetsCapInsetsViewImpl ASCapInsetsViewImpl;
+
 
 #endif
 

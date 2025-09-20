@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-ios-widgets\IOSCapInsetsPlugin\src\main\java\com\ashera\capinsets\CapInsetsCommandConverter.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_CapInsetsCommandConverter")
@@ -21,6 +22,7 @@
 #include "BaseAttributeCommand.h"
 
 @class IOSObjectArray;
+@class NSString;
 @protocol ASAttributeCommand;
 @protocol ASIWidget;
 
@@ -53,6 +55,7 @@ FOUNDATION_EXPORT ASCapInsetsCommandConverter *create_ASCapInsetsCommandConverte
 J2OBJC_TYPE_LITERAL_HEADER(ASCapInsetsCommandConverter)
 
 @compatibility_alias ComAsheraCapinsetsCapInsetsCommandConverter ASCapInsetsCommandConverter;
+
 
 #endif
 
