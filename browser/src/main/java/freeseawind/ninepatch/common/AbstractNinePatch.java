@@ -1,3 +1,18 @@
+//start - license
+/*
+ * Copyright (c) 2025 Ashera Cordova
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ */
+//end - license
 package freeseawind.ninepatch.common;
 
 import java.util.Arrays;
@@ -13,7 +28,7 @@ import freeseawind.ninepatch.common.Row.Type;
  */
 public abstract class AbstractNinePatch<T, E>
 {
-    /**
+   /**
      * Ã¦â€¹â€°Ã¤Â¼Â¸Ã¥Å’ÂºÃ¥Å¸Å¸Ã¯Â¼Å’Ã¥Æ’ï¿½Ã§Â´Â Ã¥â‚¬Â¼Ã¥Â¿â€¦Ã©Â¡Â»Ã¤Â¸ÂºÃ©Â»â€˜Ã¨â€°Â² 0xFF000000
      */
     public static final int PATCH_PIXES = 0xFF000000;
@@ -87,7 +102,7 @@ public abstract class AbstractNinePatch<T, E>
     }
     
 
-    /**
+   /**
      *
      * @param g2d
      * @param x
@@ -304,7 +319,7 @@ public abstract class AbstractNinePatch<T, E>
         return columns;
     }
 
-    /**
+   /**
      * Ã¨Â®Â¡Ã§Â®â€�?Ã§â€šÂ¹Ã¤Â¹ï¿½Ã¥â€ºÂ¾Ã§Å¡â€žÃ¦Â¯ï¿½Ã¤Â¸â‚¬Ã¥Ë†â€�?Ã¥Å’ÂºÃ¥Å¸Å¸
      * @param yRegion
      * @param xRegions
@@ -363,7 +378,7 @@ public abstract class AbstractNinePatch<T, E>
 
 
 
-    /**
+   /**
      * Ã¨Å½Â·Ã¥ï¿½â€“Ã¥â€ â€¦Ã¥Â®Â¹Ã¦ËœÂ¾Ã§Â¤ÂºÃ¥Å’ÂºÃ¥Å¸Å¸Ã§Å¡â€žÃ©â€�?Â´Ã¨Â·ï¿½
      * @param w Ã¥â€ â€¦Ã¥Â®Â¹Ã©ï¿½Â¢Ã¦ï¿½Â¿Ã§Å¡â€žÃ¥Â®Â½Ã¥ÂºÂ¦
      * @param h Ã¥â€ â€¦Ã¥Â®Â¹Ã©ï¿½Â¢Ã¦ï¿½Â¿Ã§Å¡â€žÃ©Â«ËœÃ¥ÂºÂ¦
@@ -384,7 +399,7 @@ public abstract class AbstractNinePatch<T, E>
         return new Padding(left, top, right, bottom);
     }
 
-    /**
+   /**
      * Ã¦Â Â¹Ã¦ï¿½Â®Ã¥Æ’ï¿½Ã§Â´Â Ã¥â‚¬Â¼Ã©â€ºâ€ Ã¥ï¿½Ë†Ã¨Â®Â¡Ã§Â®â€�?Ã¥Â½â€œÃ¥â€°ï¿½Ã¥Æ’ï¿½Ã§Â´Â Ã¥Å’ÂºÃ¥Å¸Å¸Ã¤Â¸Â­Ã§Å¡â€žÃ¥â€ºÂºÃ¥Â®Å¡Ã¥Å’ÂºÃ¥Å¸Å¸Ã¥â€™Å’Ã¦â€¹â€°Ã¤Â¼Â¸Ã¥Å’ÂºÃ¥Å¸Å¸
      * @param pixels Ã©Å“â‚¬Ã¨Â¦ï¿½Ã¦Å¸Â¥Ã¦â€°Â¾Ã§Å¡â€žÃ¥Æ’ï¿½Ã§Â´Â Ã©â€ºâ€ Ã¥ï¿½Ë†
      * @return
@@ -444,7 +459,7 @@ public abstract class AbstractNinePatch<T, E>
         return new NinePatchRegion(fixArea, patchArea);
     }
     
-    /**
+   /**
      * Ã¥Â¹Â³Ã©â€œÂºÃ¥â€ºÂ¾Ã§â€°â€¡
      * @param g2d
      * @param image
@@ -517,7 +532,7 @@ public abstract class AbstractNinePatch<T, E>
         }
     }
     
-    /**
+   /**
      * Ã¨Â®Â¡Ã§Â®â€�?Ã§â€šÂ¹Ã¤Â¹ï¿½Ã¥â€ºÂ¾Ã§â€°â€¡Ã¤Â¿Â¡Ã¦ï¿½Â¯
      * <p>|1|   2  |3|</p>
      * <p>|4|   5  |6|</p>
@@ -577,7 +592,7 @@ public abstract class AbstractNinePatch<T, E>
     	return image;
     }
 
-    /**
+   /**
      * Ã¤Â»Å½Ã¦Å’â€¡Ã¥Â®Å¡Ã§Å¡â€žÃ§Å¸Â©Ã¥Â½Â¢Ã¥Å’ÂºÃ¥Å¸Å¸Ã¤Â¸Â­Ã¨Â¯Â»Ã¥ï¿½â€“Ã¥Æ’ï¿½Ã§Â´Â Ã¦â€¢Â°Ã¦ï¿½Â®
      * @param img
      * @param x Ã¨ÂµÂ·Ã¥Â§â€¹xÃ¥ï¿½ï¿½Ã¦Â â€¡
@@ -588,21 +603,21 @@ public abstract class AbstractNinePatch<T, E>
      */
     public abstract int[] getPixels(T img, int x, int y, int w, int h);
 
-    /**
+   /**
      * Ã¨Å½Â·Ã¥ï¿½â€“Ã¥â€ºÂ¾Ã§â€°â€¡Ã¥Â®Â½Ã¥ÂºÂ¦
      * @param img
      * @return
      */
     public abstract int getImageWidth(T img);
 
-    /**
+   /**
      * Ã¨Å½Â·Ã¥ï¿½â€“Ã¥â€ºÂ¾Ã§â€°â€¡Ã©Â«ËœÃ¥ÂºÂ¦
      * @param img
      * @return
      */
     public abstract int getImageHeight(T img);
 
-    /**
+   /**
      *
      * @param g2d
      * @param x
@@ -610,7 +625,7 @@ public abstract class AbstractNinePatch<T, E>
      */
     public abstract void translate(E g2d, int x, int y);
 
-    /**
+   /**
      *
      * @param g2d
      * @param image
@@ -626,7 +641,7 @@ public abstract class AbstractNinePatch<T, E>
                                    int scaledWidth,
                                    int scaledHeight);
 
-    /**
+   /**
      *
      * @param g2d
      * @param image
@@ -650,7 +665,7 @@ public abstract class AbstractNinePatch<T, E>
                                    int dw,
                                    int dh);
 
-    /**
+   /**
      *
      * @param scaleWidth
      * @param scaleHeight

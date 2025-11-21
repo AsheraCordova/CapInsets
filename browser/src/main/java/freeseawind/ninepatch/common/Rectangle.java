@@ -1,9 +1,24 @@
+//start - license
+/*
+ * Copyright (c) 2025 Ashera Cordova
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ */
+//end - license
 package freeseawind.ninepatch.common;
 
 
 public class Rectangle {
 
-    /**
+   /**
      * The X coordinate of the upper-left corner of the <code>Rectangle</code>.
      *
      * @serial
@@ -13,7 +28,7 @@ public class Rectangle {
      */
     public int x;
 
-    /**
+   /**
      * The Y coordinate of the upper-left corner of the <code>Rectangle</code>.
      *
      * @serial
@@ -23,7 +38,7 @@ public class Rectangle {
      */
     public int y;
 
-    /**
+   /**
      * The width of the <code>Rectangle</code>.
      * @serial
      * @see #setSize(int, int)
@@ -32,7 +47,7 @@ public class Rectangle {
      */
     public int width;
 
-    /**
+   /**
      * The height of the <code>Rectangle</code>.
      *
      * @serial
@@ -42,13 +57,13 @@ public class Rectangle {
      */
     public int height;
 
-    /*
+   /*
      * JDK 1.1 serialVersionUID
      */
      private static final long serialVersionUID = -4345857070255674764L;
 
 
-    /**
+   /**
      * Constructs a new <code>Rectangle</code> whose upper-left corner
      * is at (0,&nbsp;0) in the coordinate space, and whose width and
      * height are both zero.
@@ -57,7 +72,7 @@ public class Rectangle {
         this(0, 0, 0, 0);
     }
 
-    /**
+   /**
      * Constructs a new <code>Rectangle</code>, initialized to match
      * the values of the specified <code>Rectangle</code>.
      * @param r  the <code>Rectangle</code> from which to copy initial values
@@ -68,7 +83,7 @@ public class Rectangle {
         this(r.x, r.y, r.width, r.height);
     }
 
-    /**
+   /**
      * Constructs a new <code>Rectangle</code> whose upper-left corner is
      * specified as
      * {@code (x,y)} and whose width and height
@@ -86,7 +101,7 @@ public class Rectangle {
         this.height = height;
     }
 
-    /**
+   /**
      * Constructs a new <code>Rectangle</code> whose upper-left corner
      * is at (0,&nbsp;0) in the coordinate space, and whose width and
      * height are specified by the arguments of the same name.
@@ -97,7 +112,7 @@ public class Rectangle {
         this(0, 0, width, height);
     }
 
-    /**
+   /**
      * Returns the X coordinate of the bounding <code>Rectangle</code> in
      * <code>double</code> precision.
      * @return the X coordinate of the bounding <code>Rectangle</code>.
@@ -106,7 +121,7 @@ public class Rectangle {
         return x;
     }
 
-    /**
+   /**
      * Returns the Y coordinate of the bounding <code>Rectangle</code> in
      * <code>double</code> precision.
      * @return the Y coordinate of the bounding <code>Rectangle</code>.
@@ -115,7 +130,7 @@ public class Rectangle {
         return y;
     }
 
-    /**
+   /**
      * Returns the width of the bounding <code>Rectangle</code> in
      * <code>double</code> precision.
      * @return the width of the bounding <code>Rectangle</code>.
@@ -124,7 +139,7 @@ public class Rectangle {
         return width;
     }
 
-    /**
+   /**
      * Returns the height of the bounding <code>Rectangle</code> in
      * <code>double</code> precision.
      * @return the height of the bounding <code>Rectangle</code>.
@@ -133,7 +148,7 @@ public class Rectangle {
         return height;
     }
 
-    /**
+   /**
      * Gets the bounding <code>Rectangle</code> of this <code>Rectangle</code>.
      * <p>
      * This method is included for completeness, to parallel the
@@ -151,7 +166,7 @@ public class Rectangle {
     }
 
 
-    /**
+   /**
      * Sets the bounding <code>Rectangle</code> of this <code>Rectangle</code>
      * to match the specified <code>Rectangle</code>.
      * <p>
@@ -166,7 +181,7 @@ public class Rectangle {
         setBounds(r.x, r.y, r.width, r.height);
     }
 
-    /**
+   /**
      * Sets the bounding <code>Rectangle</code> of this
      * <code>Rectangle</code> to the specified
      * <code>x</code>, <code>y</code>, <code>width</code>,
@@ -188,7 +203,7 @@ public class Rectangle {
         reshape(x, y, width, height);
     }
 
-    /**
+   /**
      * Sets the bounds of this {@code Rectangle} to the integer bounds
      * which encompass the specified {@code x}, {@code y}, {@code width},
      * and {@code height}.
@@ -246,7 +261,7 @@ public class Rectangle {
         return (int) (doceil ? Math.ceil(v) : Math.floor(v));
     }
 
-    /**
+   /**
      * Sets the bounding <code>Rectangle</code> of this
      * <code>Rectangle</code> to the specified
      * <code>x</code>, <code>y</code>, <code>width</code>,
@@ -270,7 +285,7 @@ public class Rectangle {
     }
 
 
-    /**
+   /**
      * Moves this <code>Rectangle</code> to the specified location.
      * <p>
      * This method is included for completeness, to parallel the
@@ -285,7 +300,7 @@ public class Rectangle {
         move(x, y);
     }
 
-    /**
+   /**
      * Moves this <code>Rectangle</code> to the specified location.
      * <p>
      * @param x the X coordinate of the new location
@@ -299,7 +314,7 @@ public class Rectangle {
         this.y = y;
     }
 
-    /**
+   /**
      * Translates this <code>Rectangle</code> the indicated distance,
      * to the right along the X coordinate axis, and
      * downward along the Y coordinate axis.
@@ -378,7 +393,7 @@ public class Rectangle {
     }
 
 
-    /**
+   /**
      * Sets the size of this <code>Rectangle</code> to the specified
      * width and height.
      * <p>
@@ -394,7 +409,7 @@ public class Rectangle {
         resize(width, height);
     }
 
-    /**
+   /**
      * Sets the size of this <code>Rectangle</code> to the specified
      * width and height.
      * <p>
@@ -409,7 +424,7 @@ public class Rectangle {
         this.height = height;
     }
 
-    /**
+   /**
      * Checks whether or not this <code>Rectangle</code> contains the
      * point at the specified location {@code (x,y)}.
      *
@@ -425,7 +440,7 @@ public class Rectangle {
         return inside(x, y);
     }
 
-    /**
+   /**
      * Checks whether or not this <code>Rectangle</code> entirely contains
      * the specified <code>Rectangle</code>.
      *
@@ -439,7 +454,7 @@ public class Rectangle {
         return contains(r.x, r.y, r.width, r.height);
     }
 
-    /**
+   /**
      * Checks whether this <code>Rectangle</code> entirely contains
      * the <code>Rectangle</code>
      * at the specified location {@code (X,Y)} with the
@@ -491,7 +506,7 @@ public class Rectangle {
         return true;
     }
 
-    /**
+   /**
      * Checks whether or not this <code>Rectangle</code> contains the
      * point at the specified location {@code (X,Y)}.
      *
@@ -525,7 +540,7 @@ public class Rectangle {
                 (h < y || h > Y));
     }
 
-    /**
+   /**
      * Determines whether or not this <code>Rectangle</code> and the specified
      * <code>Rectangle</code> intersect. Two rectangles intersect if
      * their intersection is nonempty.
@@ -558,7 +573,7 @@ public class Rectangle {
                 (th < ty || th > ry));
     }
 
-    /**
+   /**
      * Computes the intersection of this <code>Rectangle</code> with the
      * specified <code>Rectangle</code>. Returns a new <code>Rectangle</code>
      * that represents the intersection of the two rectangles.
@@ -594,7 +609,7 @@ public class Rectangle {
         return new Rectangle(tx1, ty1, (int) tx2, (int) ty2);
     }
 
-    /**
+   /**
      * Computes the union of this <code>Rectangle</code> with the
      * specified <code>Rectangle</code>. Returns a new
      * <code>Rectangle</code> that
@@ -656,7 +671,7 @@ public class Rectangle {
         return new Rectangle(tx1, ty1, (int) tx2, (int) ty2);
     }
 
-    /**
+   /**
      * Adds a point, specified by the integer arguments {@code newx,newy}
      * to the bounds of this {@code Rectangle}.
      * <p>
@@ -707,7 +722,7 @@ public class Rectangle {
         reshape(x1, y1, (int) x2, (int) y2);
     }
 
-    /**
+   /**
      * Adds a <code>Rectangle</code> to this <code>Rectangle</code>.
      * The resulting <code>Rectangle</code> is the union of the two
      * rectangles.
@@ -763,7 +778,7 @@ public class Rectangle {
         reshape(tx1, ty1, (int) tx2, (int) ty2);
     }
 
-    /**
+   /**
      * Resizes the <code>Rectangle</code> both horizontally and vertically.
      * <p>
      * This method modifies the <code>Rectangle</code> so that it is
@@ -839,7 +854,7 @@ public class Rectangle {
         reshape((int) x0, (int) y0, (int) x1, (int) y1);
     }
 
-    /**
+   /**
      * {@inheritDoc}
      * @since 1.2
      */
@@ -848,7 +863,7 @@ public class Rectangle {
     }
 
 
-    /**
+   /**
      * Checks whether two rectangles are equal.
      * <p>
      * The result is <code>true</code> if and only if the argument is not
@@ -871,7 +886,7 @@ public class Rectangle {
         return super.equals(obj);
     }
 
-    /**
+   /**
      * Returns a <code>String</code> representing this
      * <code>Rectangle</code> and its values.
      * @return a <code>String</code> representing this
