@@ -41,13 +41,14 @@ public class CapInsetsCommandConverter extends BaseAttributeCommand{
 		if (rect.height == 0 || rect.width == 0) {
 			return value;
 		}
+		boolean isStateListDrawable = value instanceof r.android.graphics.drawable.StateListDrawable;
         final org.eclipse.swt.graphics.Image ninePatchImg = new org.eclipse.swt.graphics.Image(Display.getDefault(), rect.width, rect.height);
         widget.getFragment().addDisposable(ninePatchImg);
         
         org.eclipse.swt.graphics.GC gc = new org.eclipse.swt.graphics.GC(ninePatchImg, org.eclipse.swt.SWT.LEFT_TO_RIGHT);
         gc.setBackground(control.getParent().getBackground());
         gc.fillRectangle(0, 0, control.getBounds().width, control.getBounds().height);
-        
+
         if (value instanceof r.android.graphics.drawable.Drawable) {
         	value = ((r.android.graphics.drawable.Drawable) value).getDrawable();	
         }
@@ -57,6 +58,8 @@ public class CapInsetsCommandConverter extends BaseAttributeCommand{
         
         ninePatch.dispose();
         gc.dispose();
+
+        setStopExecution(isStateListDrawable);
 		return ninePatchImg;
 	}
 

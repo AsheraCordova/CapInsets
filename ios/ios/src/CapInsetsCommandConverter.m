@@ -15,6 +15,7 @@
 #include "IOSObjectArray.h"
 #include "IWidget.h"
 #include "J2ObjC_source.h"
+#include "StateListDrawable.h"
 #include "java/lang/Boolean.h"
 #include "java/lang/Integer.h"
 
@@ -57,10 +58,20 @@ __attribute__((unused)) static id ASCapInsetsCommandConverter_nativeLoadImageBun
                         withId:(id)value {
   bool isNinePatch = capInsetsStretchTop_ != 0 || capInsetsStretchBottom_ != 0 || capInsetsStretchLeft_ != 0 || capInsetsStretchRight_ != 0;
   if (isNinePatch) {
+    id originalValue = value;
+    if ([originalValue isKindOfClass:[ADStateListDrawable class]]) {
+      [((ADStateListDrawable *) nil_chk(((ADStateListDrawable *) originalValue))) setCurrentMutatedDrawbleWithId:nil];
+    }
     if ([value isKindOfClass:[ADDrawable class]]) {
       value = [((ADDrawable *) nil_chk(((ADDrawable *) value))) getDrawable];
     }
-    return ASCapInsetsCommandConverter_nativeLoadImageBundleWithId_withInt_withInt_withInt_withInt_(self, value, capInsetsStretchTop_, capInsetsStretchBottom_, capInsetsStretchLeft_, capInsetsStretchRight_);
+    id image = ASCapInsetsCommandConverter_nativeLoadImageBundleWithId_withInt_withInt_withInt_withInt_(self, value, capInsetsStretchTop_, capInsetsStretchBottom_, capInsetsStretchLeft_, capInsetsStretchRight_);
+    if ([originalValue isKindOfClass:[ADStateListDrawable class]]) {
+      ADStateListDrawable *stateListDrawable = (ADStateListDrawable *) originalValue;
+      [((ADStateListDrawable *) nil_chk(stateListDrawable)) setCurrentMutatedDrawbleWithId:image];
+      return stateListDrawable;
+    }
+    return image;
   }
   return value;
 }

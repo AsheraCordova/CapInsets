@@ -15,6 +15,8 @@
 //end - license
 package com.ashera.capinsets;
 
+import java.util.ArrayList;
+
 import com.ashera.capinsets.NinePatchImageUtils.CapInsets;
 import com.ashera.core.IFragment;
 import com.ashera.widget.AttributeCommand;
@@ -25,6 +27,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
 
 public class CapInsetsCommandConverter extends BaseAttributeCommand {
 	private Integer capInsetsStretchTop;
@@ -36,26 +39,81 @@ public class CapInsetsCommandConverter extends BaseAttributeCommand {
 		super(id);
 	}
 
+	private StateListDrawable copyAndFilterKnownStates(StateListDrawable original, Integer capInsetsStretchTop,
+			Integer capInsetsStretchBottom, Integer capInsetsStretchLeft, Integer capInsetsStretchRight, String name,
+			Context context) {
+		StateListDrawable newList = new StateListDrawable();
+
+		// Define the states you want to support
+		int[][] statesToCopy = new int[][] { new int[] {}, new int[] { android.R.attr.state_pressed },
+				new int[] { android.R.attr.state_enabled }, new int[] { -android.R.attr.state_enabled } };
+		ArrayList<Bitmap> bitmaps = new ArrayList<>();
+		// Save current state to restore it later
+		int[] savedState = original.getState();
+		Drawable defaultFilteredDrawable = null;
+		for (int[] state : statesToCopy) {
+			// Force the original drawable to switch to this state
+			original.setState(state);
+
+			// Get the drawable that corresponds to this state
+			Drawable current = original.getCurrent();
+
+			Bitmap bitmap = null;
+			// Get the bitmap from the drawable
+			if (current instanceof android.graphics.drawable.BitmapDrawable) {
+				bitmap = ((android.graphics.drawable.BitmapDrawable) current).getBitmap();
+				if (bitmaps.contains(bitmap)) {
+					continue;
+				}
+				bitmaps.add(bitmap);
+			} else {
+				continue;
+			}
+			// Mutate and apply filter
+			Drawable filtered = getDrawable(capInsetsStretchTop, capInsetsStretchBottom, capInsetsStretchLeft,
+					capInsetsStretchRight, bitmap, "drawable", context);
+
+			// Add to the new list
+			if (state.length == 0) {
+				defaultFilteredDrawable = filtered;
+			} else {
+				// Add specific states immediately
+				newList.addState(state, filtered);
+			}
+		}
+		if (defaultFilteredDrawable != null) {
+			newList.addState(new int[] {}, defaultFilteredDrawable);
+		}
+		// Restore original state
+		original.setState(savedState);
+
+		return newList;
+	}
+
 	@Override
 	public Object modifyValue(IWidget widget, Object nativeView, String phase, String attributeName, Object value) {
-        boolean isNinePatch = capInsetsStretchTop != null || capInsetsStretchBottom != null || capInsetsStretchLeft != null || capInsetsStretchRight != null;
+		boolean isNinePatch = capInsetsStretchTop != null || capInsetsStretchBottom != null
+				|| capInsetsStretchLeft != null || capInsetsStretchRight != null;
 
-        if (isNinePatch) {
-        	IFragment fragment = widget.getFragment();
-        	Context context = (Context) fragment.getRootActivity();
-        	
-        	Bitmap bitmap = null;
-        	if (value instanceof android.graphics.drawable.NinePatchDrawable) {
+		if (isNinePatch) {
+			IFragment fragment = widget.getFragment();
+			Context context = (Context) fragment.getRootActivity();
+
+			Bitmap bitmap = null;
+			if (value instanceof android.graphics.drawable.NinePatchDrawable) {
 				return value;
 			} else if (value instanceof Integer) {
-	            int id = (int) value;
-	    		bitmap = BitmapFactory.decodeResource(context.getResources(), id);
-        	} else if (value instanceof android.graphics.drawable.BitmapDrawable) {
-        		bitmap = ((android.graphics.drawable.BitmapDrawable) value).getBitmap();
-        	}
-    		
-            return getDrawable(capInsetsStretchTop, capInsetsStretchBottom, capInsetsStretchLeft, capInsetsStretchRight, bitmap, "drawable", context);
-        }
+				int id = (int) value;
+				bitmap = BitmapFactory.decodeResource(context.getResources(), id);
+			} else if (value instanceof android.graphics.drawable.BitmapDrawable) {
+				bitmap = ((android.graphics.drawable.BitmapDrawable) value).getBitmap();
+			} else if (value instanceof StateListDrawable) {
+                return copyAndFilterKnownStates((StateListDrawable) value, capInsetsStretchTop, capInsetsStretchBottom, capInsetsStretchLeft, capInsetsStretchRight, "drawable", context);
+            }
+
+			return getDrawable(capInsetsStretchTop, capInsetsStretchBottom, capInsetsStretchLeft, capInsetsStretchRight,
+					bitmap, "drawable", context);
+		}
 
 		return value;
 	}
@@ -88,24 +146,24 @@ public class CapInsetsCommandConverter extends BaseAttributeCommand {
 
 	@Override
 	public void updateArgs(Object... args) {
-		for (int i = 0; i < args.length; i+=2) {
+		for (int i = 0; i < args.length; i += 2) {
 			Object attributeName = args[i];
 			if (attributeName.equals("capInsetsTop")) {
-				capInsetsStretchTop = ((int) args[i + 1]);	
+				capInsetsStretchTop = ((int) args[i + 1]);
 			}
-			
+
 			if (attributeName.equals("capInsetsBottom")) {
-				capInsetsStretchBottom = ((int) args[i + 1]);	
+				capInsetsStretchBottom = ((int) args[i + 1]);
 			}
-			
+
 			if (attributeName.equals("capInsetsLeft")) {
-				capInsetsStretchLeft = ((int) args[i + 1]);	
+				capInsetsStretchLeft = ((int) args[i + 1]);
 			}
-			
+
 			if (attributeName.equals("capInsetsRight")) {
-				capInsetsStretchRight = ((int) args[i + 1]);	
+				capInsetsStretchRight = ((int) args[i + 1]);
 			}
-			
+
 		}
 	}
 }

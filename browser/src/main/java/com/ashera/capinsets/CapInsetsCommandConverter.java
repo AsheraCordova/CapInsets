@@ -38,7 +38,7 @@ public class CapInsetsCommandConverter extends BaseAttributeCommand{
 		if (htmlElement.getClientWidth() == 0 || htmlElement.getClientHeight() == 0) {
 			return value;
 		}
-		
+		boolean isStateListDrawable = value instanceof r.android.graphics.drawable.StateListDrawable;
 	   	Drawable drawable = (r.android.graphics.drawable.Drawable) value;
 
         if (value instanceof r.android.graphics.drawable.Drawable) {
@@ -66,6 +66,12 @@ public class CapInsetsCommandConverter extends BaseAttributeCommand{
         ninePatch.drawNinePatch(canvas, 0, 0, htmlElement.getClientWidth(), htmlElement.getClientHeight());
         
 		String dataURL = canvas.toDataURL();
+		
+		if (isStateListDrawable) {
+        	setStopExecution(true);
+        	return dataURL;
+        }
+		
 		cache.put(cachekey, dataURL);
 		return dataURL;
 	}

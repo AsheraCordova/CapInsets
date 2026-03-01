@@ -36,10 +36,24 @@ public class CapInsetsCommandConverter extends BaseAttributeCommand{
 		boolean isNinePatch = capInsetsStretchTop != 0 || capInsetsStretchBottom != 0 || capInsetsStretchLeft != 0 || capInsetsStretchRight != 0;
 
         if (isNinePatch) {
+        	
+        	Object originalValue = value;
+        	
+        	if (originalValue instanceof r.android.graphics.drawable.StateListDrawable) {
+        		((r.android.graphics.drawable.StateListDrawable)originalValue).setCurrentMutatedDrawble(null);
+        	}
+        	
         	if (value instanceof r.android.graphics.drawable.Drawable) {
             	value = ((r.android.graphics.drawable.Drawable) value).getDrawable();	
             }
-        	return nativeLoadImageBundle(value, capInsetsStretchTop, capInsetsStretchBottom, capInsetsStretchLeft, capInsetsStretchRight);
+        	Object image = nativeLoadImageBundle(value, capInsetsStretchTop, capInsetsStretchBottom, capInsetsStretchLeft, capInsetsStretchRight);
+        	
+        	if (originalValue instanceof r.android.graphics.drawable.StateListDrawable) {
+        		r.android.graphics.drawable.StateListDrawable stateListDrawable = (r.android.graphics.drawable.StateListDrawable) originalValue;
+        		stateListDrawable.setCurrentMutatedDrawble(image);
+        		return stateListDrawable;
+        	}
+			return image;
         }
 		return value;
 
