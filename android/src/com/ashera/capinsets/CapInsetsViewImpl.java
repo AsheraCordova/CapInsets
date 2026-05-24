@@ -42,6 +42,7 @@ public class CapInsetsViewImpl implements com.ashera.widget.IAttributable {
 	// start - body
 	public final static String LOCAL_NAME = "CapInsetsView"; 
 	private IWidget w;
+	
 	private CapInsetsViewImpl(IWidget widget) {
 		this.w = widget;
 	}
